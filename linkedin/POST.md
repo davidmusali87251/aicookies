@@ -14,6 +14,8 @@ Tres versiones según gusto y largo. Las tres pensadas para ir junto al carrusel
 >
 > v0.1 publicado: manifiesto, spec, implementación de referencia (MIT) y demo funcional.
 >
+> github.com/davidmusali87251/aicookies
+>
 > La idea es libre. La doctrina, también. El sello, certificable.
 >
 > Israel · 2026
@@ -37,6 +39,8 @@ Tres versiones según gusto y largo. Las tres pensadas para ir junto al carrusel
 > — Especificación técnica
 > — Reference implementation (MIT)
 > — Demo funcional en browser
+>
+> github.com/davidmusali87251/aicookies
 >
 > La idea es libre. La doctrina, también. El sello, certificable.
 >
@@ -64,6 +68,8 @@ Tres versiones según gusto y largo. Las tres pensadas para ir junto al carrusel
 > — Implementación de referencia (~270 líneas, vanilla JS, MIT)
 > — Demo funcional en browser, sin server, sin build
 >
+> github.com/davidmusali87251/aicookies
+>
 > La idea es libre. La doctrina, también. El sello, certificable.
 >
 > Israel · 2026.
@@ -89,6 +95,8 @@ Tres versiones según gusto y largo. Las tres pensadas para ir junto al carrusel
 > v0.1 publicado: manifiesto, spec, implementación MIT y demo.
 > Custodian y Dian: especificados, en diseño.
 >
+> github.com/davidmusali87251/aicookies
+>
 > La idea es libre. El sello, certificable.
 >
 > Israel · 2026
@@ -111,6 +119,8 @@ Tres versiones según gusto y largo. Las tres pensadas para ir junto al carrusel
 > v0.1 publicado: manifiesto bilingüe, spec técnica, implementación MIT (~270 líneas), demo funcional.
 > Custodian y Dian: especificados, en diseño.
 >
+> github.com/davidmusali87251/aicookies
+>
 > La idea es libre. La doctrina, también. El sello, certificable.
 >
 > Israel · 2026
@@ -121,7 +131,7 @@ Tres versiones según gusto y largo. Las tres pensadas para ir junto al carrusel
 
 - LinkedIn corta a ~210 caracteres antes del "see more". El primer párrafo (la tagline) tiene que sostenerse solo.
 - El carrusel son 6 imágenes en orden: cover → problema → giro → 7 principios → es/no es → status.
-- Si querés agregar el repo público en GitHub, sumalo al final del post (no en el carrusel — el carrusel queda atemporal).
+- **Repo público:** https://github.com/davidmusali87251/aicookies — sumarlo al final del post (no en el carrusel, que queda atemporal). Ya está incluido en las versiones de arriba.
 - Los hashtags al final son opcionales. El tono doctrinal funciona mejor sin ellos; si los usás, máximo 4.
 
 ## Texto alternativo (alt text) para accesibilidad

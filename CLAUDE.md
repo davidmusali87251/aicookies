@@ -46,6 +46,7 @@ AIcookies es un **agente de infraestructura** bajo **doctrina Kairo**. No tiene 
 | **Dian** v0.2 | ⏳ spec lista (`DIAN.md`), implementación no iniciada |
 | **Sello** | ✅ `seal.svg` + `seal-preview.html` |
 | **LinkedIn** | ✅ carrusel listo (`linkedin/`), publicación pendiente |
+| **GitHub repo público** | ✅ publicado — https://github.com/davidmusali87251/aicookies (MIT) |
 
 **Modo:** cerrado en portfolio. No se avanza activamente. Si se retoma: ver pendientes al final.
 
@@ -79,8 +80,8 @@ El `.claude/launch.json` ya tiene el server configurado. Si Claude Code lanzó e
 - **Test suite:** referenciada en `SPEC.md` + `CERTIFICATION.md` pero no escrita. Bloquea la apertura de certificación pública.
 - **Dominio `aicookies.org`:** referenciado pero no registrado. No urgente en modo portfolio.
 - **Emails `cert@aicookies.org` / `selim@aicookies.org`:** ídem — pendiente de dominio.
-- **Publicación del carrusel LinkedIn:** `linkedin/` está listo. Solo falta la acción de publicar.
-- **GitHub repo público:** el código es MIT, la idea es libre — pero el repo no existe todavía. Necesario para que "open standard" sea real.
+- **Publicación del carrusel LinkedIn:** `linkedin/` está listo. Solo falta la acción de publicar — el repo público ya existe y se puede citar en el post.
+- **GitHub repo público:** ✅ cerrado — https://github.com/davidmusali87251/aicookies. Si más adelante se registra `aicookies.org`, conviene mover el repo a una org `aicookies/aicookies` (GitHub redirige el viejo).
 
 ## Workflow del usuario
 
