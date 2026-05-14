@@ -1,0 +1,20 @@
+# Local harness / editor config
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Node (for future Custodian build)
+node_modules/
+dist/
+build/
+*.log
+.env
+.env.local

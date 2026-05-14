@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AIcookies seal">
+  <title>AIcookies — bounded · local · transparent</title>
+
+  <defs>
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300&family=DM+Sans:wght@300;400&family=DM+Mono:wght@400&display=swap');
+      .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+      .sans { font-family: 'DM Sans', ui-sans-serif, sans-serif; }
+      .serif-italic { font-family: 'Fraunces', ui-serif, serif; font-style: italic; }
+    ]]></style>
+
+    <!-- Top half-circle path for the curved doctrinal text -->
+    <path id="topArc" d="M 100 540 A 440 440 0 0 1 980 540" fill="none"/>
+    <!-- Bottom half-circle path (read upside-down style, like coin reverse) -->
+    <path id="bottomArc" d="M 130 540 A 410 410 0 0 0 950 540" fill="none"/>
+  </defs>
+
+  <!-- Background bone -->
+  <rect width="1080" height="1080" fill="#f0ede6"/>
+
+  <!-- Outer rings -->
+  <circle cx="540" cy="540" r="510" fill="none" stroke="#1a1a18" stroke-width="1"/>
+  <circle cx="540" cy="540" r="475" fill="none" stroke="#1a1a18" stroke-width="0.5"/>
+
+  <!-- Cardinal ticks -->
+  <g stroke="#1a1a18" stroke-width="1.2" stroke-linecap="square">
+    <line x1="540" y1="35"   x2="540" y2="68"/>
+    <line x1="540" y1="1012" x2="540" y2="1045"/>
+    <line x1="35"   y1="540" x2="68"   y2="540"/>
+    <line x1="1012" y1="540" x2="1045" y2="540"/>
+  </g>
+
+  <!-- Diagonal small dots between cardinals (45°, 135°, 225°, 315°) -->
+  <g fill="#1a1a18">
+    <circle cx="876" cy="204" r="3"/>
+    <circle cx="876" cy="876" r="3"/>
+    <circle cx="204" cy="876" r="3"/>
+    <circle cx="204" cy="204" r="3"/>
+  </g>
+
+  <!-- Curved doctrinal text (top) -->
+  <text class="mono" font-size="26" letter-spacing="0.2em" fill="#1a1a18">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">· BOUNDED · LOCAL · TRANSPARENT ·</textPath>
+  </text>
+
+  <!-- Solid dark inner circle -->
+  <circle cx="540" cy="540" r="340" fill="#1a1a18"/>
+  <circle cx="540" cy="540" r="320" fill="none" stroke="#f0ede6" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Wordmark -->
+  <text class="sans" x="540" y="490" font-weight="400" font-size="62" letter-spacing="0.28em" fill="#f0ede6" text-anchor="middle">AICOOKIES</text>
+
+  <!-- Hairline divider -->
+  <line x1="430" y1="525" x2="650" y2="525" stroke="#f0ede6" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Center user dot — el usuario en el centro del agente -->
+  <circle cx="540" cy="568" r="7" fill="#f0ede6"/>
+
+  <!-- Italic Fraunces below — the tagline distilled -->
+  <text class="serif-italic" x="540" y="640" font-weight="300" font-size="36" fill="#f0ede6" opacity="0.7" text-anchor="middle">el cookie que piensa</text>
+
+  <!-- Version mark below -->
+  <text class="mono" x="540" y="700" font-size="16" letter-spacing="0.32em" fill="#f0ede6" opacity="0.45" text-anchor="middle">v0.1 · 2026</text>
+
+</svg>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIcookies — el primer cookie que piensa</title>
+  <meta name="description" content="Demo del primer AIcookie. Un cookie es la voz del usuario en el sitio. Que hable bien.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand-row">
+      <div class="brand-dot"></div>
+      <span class="brand-name">AIcookies</span>
+      <span class="panel-meta">v0.1 · primer demo</span>
+    </div>
+    <h1 class="tagline">
+      Un cookie es la voz del usuario en el sitio.
+      <em>Que hable bien.</em>
+    </h1>
+    <p class="subtagline">
+      El cookie pasivo guardaba lo que el sitio quería saber.
+      El cookie pensante decide qué el sitio puede saber.
+      Esta es la primera implementación de referencia. Todo corre en tu browser. Nada se envía a ningún server.
+    </p>
+  </header>
+
+  <!-- DEMO -->
+  <div class="demo-grid">
+
+    <!-- LEFT — THE SITE -->
+    <section class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">El sitio</h2>
+        <span class="panel-meta">simula un comercio</span>
+      </div>
+
+      <div class="site-section">
+        <div class="site-label">1 · El usuario le cuenta cosas a su AIcookie</div>
+        <div class="preferences-form">
+          <div class="pref-row">
+            <input type="text" id="pref-key" class="pref-input" placeholder="topic (ej: food.diet)" value="food.diet">
+            <input type="text" id="pref-value" class="pref-input" placeholder="valor (ej: vegetariano)" value="vegetariano">
+            <select id="pref-scope" class="pref-select">
+              <option value="business">business</option>
+              <option value="private">private</option>
+              <option value="public">public</option>
+            </select>
+            <button class="btn btn-primary" id="btn-remember">Guardar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section">
+        <div class="site-label">2 · El sitio hace preguntas al AIcookie</div>
+        <div class="scenarios">
+
+          <button class="scenario-btn" data-topic="food.diet" data-context="restaurant">
+            <span class="scenario-num">A</span>
+            <div class="scenario-text">
+              Restaurant pregunta: <strong>"¿qué dieta tiene este usuario?"</strong>
+              <span class="scenario-context">topic: food.diet · context: restaurant</span>
+            </div>
+          </button>
+
+          <button class="scenario-btn" data-topic="food.diet" data-context="news">
+            <span class="scenario-num">B</span>
+            <div class="scenario-text">
+              News site pregunta: <strong>"¿qué dieta tiene este usuario?"</strong>
+              <span class="scenario-context">topic: food.diet · context: news (irrelevante)</span>
+            </div>
+          </button>
+
+          <button class="scenario-btn" data-topic="commerce.history" data-context="recommendation">
+            <span class="scenario-num">C</span>
+            <div class="scenario-text">
+              Tienda pregunta: <strong>"¿qué compró antes?"</strong>
+              <span class="scenario-context">topic: commerce.history · context: recommendation</span>
+            </div>
+          </button>
+
+          <button class="scenario-btn" data-topic="identity.age" data-context="commerce">
+            <span class="scenario-num">D</span>
+            <div class="scenario-text">
+              E-commerce pregunta: <strong>"¿qué edad tiene?"</strong>
+              <span class="scenario-context">topic: identity.age · context: commerce (irrelevante salvo legal)</span>
+            </div>
+          </button>
+
+          <button class="scenario-btn" data-topic="location.city" data-context="logistics">
+            <span class="scenario-num">E</span>
+            <div class="scenario-text">
+              Logística pregunta: <strong>"¿en qué ciudad vive?"</strong>
+              <span class="scenario-context">topic: location.city · context: logistics</span>
+            </div>
+          </button>
+
+          <button class="scenario-btn" data-topic="preferences.unknown" data-context="commerce">
+            <span class="scenario-num">F</span>
+            <div class="scenario-text">
+              Tienda pregunta: <strong>"¿qué le gusta?"</strong> (sin data)
+              <span class="scenario-context">topic: preferences.unknown · context: commerce</span>
+            </div>
+          </button>
+
+        </div>
+      </div>
+
+      <div class="site-section">
+        <button class="btn btn-ghost btn-small" id="btn-reset">Resetear AIcookie</button>
+        <button class="btn btn-ghost btn-small" id="btn-export">Exportar mis datos</button>
+      </div>
+    </section>
+
+    <!-- RIGHT — THE COOKIE -->
+    <section class="panel panel-dark">
+      <div class="panel-header">
+        <h2 class="panel-title" style="color: var(--bone);">Tu AIcookie</h2>
+        <span class="panel-meta" id="cookie-id">cargando…</span>
+      </div>
+
+      <div class="inspector-section">
+        <div class="inspector-label">Lo que sé sobre vos</div>
+        <div class="knowledge-list" id="knowledge-list">
+          <div class="empty-state">Todavía nada. Decime algo en el panel de la izquierda.</div>
+        </div>
+      </div>
+
+      <div class="inspector-section">
+        <div class="inspector-label">Mis decisiones recientes</div>
+        <div class="log-list" id="log-list">
+          <div class="empty-state">Todavía no me preguntaron nada.</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- PRINCIPLES -->
+  <section class="principles">
+    <h2 class="principles-header">Los siete principios — visibles en cada decisión</h2>
+    <div class="principles-grid">
+      <div class="principle">
+        <div class="principle-num">01</div>
+        <div class="principle-text">El cookie sirve al usuario, no al sitio.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">02</div>
+        <div class="principle-text">El cookie razona, no solo guarda.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">03</div>
+        <div class="principle-text">El cookie negocia, no entrega.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">04</div>
+        <div class="principle-text">El silencio es respuesta válida.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">05</div>
+        <div class="principle-text">El cookie cura su propia memoria — borra lo que sobra.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">06</div>
+        <div class="principle-text">Local por default. El cloud es excepción explícita.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">07</div>
+        <div class="principle-text">El cookie es transparente — siempre se le puede preguntar qué sabe y qué hizo.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    AIcookies · v0.1 · borrador<br>
+    Selim David Musali · Israel 2026 · <a href="MANIFIESTO.md">manifiesto</a> · <a href="SPEC.md">spec</a>
+  </footer>
+
+</div>
+
+<script src="aicookie.js"></script>
+<script>
+  // Initialize the AIcookie
+  const cookie = new AIcookie();
+
+  // ─── UI WIRING ────────────────────────────────────────────────
+
+  const knowledgeList = document.getElementById('knowledge-list');
+  const logList = document.getElementById('log-list');
+  const cookieIdEl = document.getElementById('cookie-id');
+
+  function fmtTime(ts) {
+    const d = new Date(ts);
+    return d.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+  }
+
+  function renderKnowledge() {
+    const data = cookie.inspect();
+    cookieIdEl.textContent = data.id;
+    const topics = Object.keys(data.knownAbout);
+
+    if (topics.length === 0) {
+      knowledgeList.innerHTML = '<div class="empty-state">Todavía nada. Decime algo en el panel de la izquierda.</div>';
+      return;
+    }
+
+    knowledgeList.innerHTML = topics.map(t => {
+      const p = data.knownAbout[t];
+      return `
+        <div class="knowledge-item">
+          <div class="k-topic">${escapeHtml(t)}</div>
+          <div class="k-value">${escapeHtml(p.value)}</div>
+          <div class="k-scope">${escapeHtml(p.scope)}</div>
+          <button class="k-forget" data-forget="${escapeHtml(t)}">olvidar</button>
+        </div>
+      `;
+    }).join('');
+
+    // Wire the forget buttons
+    knowledgeList.querySelectorAll('[data-forget]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cookie.forget(btn.dataset.forget);
+        renderAll();
+      });
+    });
+  }
+
+  function renderLog() {
+    const data = cookie.inspect();
+    if (data.recentDecisions.length === 0) {
+      logList.innerHTML = '<div class="empty-state">Todavía no me preguntaron nada.</div>';
+      return;
+    }
+
+    const recent = data.recentDecisions.slice(-30).reverse();
+
+    logList.innerHTML = recent.map(entry => {
+      const action = entry.action || {};
+      const decision = entry.decision || {};
+      const answer = decision.answer || 'unknown';
+
+      let detail = '';
+      if (action.type === 'remember') {
+        detail = `Guardé <code>${escapeHtml(action.topic)}</code> con scope <code>${escapeHtml(decision.scope)}</code>.`;
+      } else if (action.type === 'forget') {
+        detail = `Olvidé <code>${escapeHtml(action.topic)}</code>.`;
+      } else {
+        const ctx = action.context ? `desde contexto <code>${escapeHtml(action.context)}</code>` : '';
+        const topic = action.topic ? `sobre <code>${escapeHtml(action.topic)}</code>` : '';
+        const reason = decision.reason ? `Razón: <code>${escapeHtml(decision.reason)}</code>.` : '';
+        const value = decision.value !== undefined ? ` Valor: <code>${escapeHtml(decision.value)}</code>.` : '';
+        detail = `Pregunta ${topic} ${ctx}. ${reason}${value}`;
+      }
+
+      return `
+        <div class="log-item ${escapeHtml(answer)}">
+          <div class="log-header">
+            <span class="log-action">${escapeHtml(answer)}</span>
+            <span class="log-time">${fmtTime(entry.at)}</span>
+          </div>
+          <div class="log-detail">${detail}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderAll() {
+    renderKnowledge();
+    renderLog();
+  }
+
+  // ─── EVENT HANDLERS ────────────────────────────────────────────
+
+  document.getElementById('btn-remember').addEventListener('click', () => {
+    const key = document.getElementById('pref-key').value.trim();
+    const value = document.getElementById('pref-value').value.trim();
+    const scope = document.getElementById('pref-scope').value;
+    if (!key || !value) return;
+    cookie.remember(key, value, { scope });
+    renderAll();
+  });
+
+  document.querySelectorAll('.scenario-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cookie.ask({
+        topic: btn.dataset.topic,
+        context: btn.dataset.context,
+      });
+      renderAll();
+    });
+  });
+
+  document.getElementById('btn-reset').addEventListener('click', () => {
+    if (confirm('¿Borrar todo lo que tu AIcookie sabe?')) {
+      cookie.reset();
+      renderAll();
+    }
+  });
+
+  document.getElementById('btn-export').addEventListener('click', () => {
+    const blob = new Blob([cookie.export()], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'aicookie-export.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // Subscribe to cookie events for live UI updates
+  cookie.onAction(() => renderAll());
+
+  // Initial render
+  renderAll();
+</script>
+
+</body>
+</html>

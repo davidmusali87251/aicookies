@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "aicookies",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", ".", "-l", "3457", "--no-clipboard"],
+      "port": 3457
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIcookies — seal preview</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 32px;
+      padding: 40px 20px;
+    }
+    .preview-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .preview-frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .preview-frame img {
+      display: block;
+    }
+    .frame-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .seal-large { width: 480px; height: 480px; }
+    .seal-mid   { width: 220px; height: 220px; }
+    .seal-small { width: 96px; height: 96px; }
+    .seal-favicon { width: 48px; height: 48px; }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 28px;
+      letter-spacing: -0.01em;
+    }
+    .swatch-dark {
+      background: var(--dark);
+      padding: 32px;
+      border-radius: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>seal · preview a varios tamaños</h1>
+
+  <div class="preview-row">
+    <div class="preview-frame">
+      <img src="seal.svg" class="seal-large" alt="AIcookies seal — large">
+      <span class="frame-label">480 × 480</span>
+    </div>
+    <div class="preview-frame">
+      <img src="seal.svg" class="seal-mid" alt="AIcookies seal — mid">
+      <span class="frame-label">220 × 220</span>
+    </div>
+    <div class="preview-frame">
+      <img src="seal.svg" class="seal-small" alt="AIcookies seal — small">
+      <span class="frame-label">96 × 96</span>
+    </div>
+    <div class="preview-frame">
+      <img src="seal.svg" class="seal-favicon" alt="AIcookies seal — favicon">
+      <span class="frame-label">48 × 48 · favicon</span>
+    </div>
+  </div>
+
+</body>
+</html>
